@@ -4,12 +4,14 @@
     <div class="col-md-4 ">
         <div class="jumbotron">
             <h1 class="display-4">
-                {% if user.is_authenticated %}
-                    Groups
-                {% endif %}
+
+                Groups
+
             </h1>
-            <p class="lead"> Welcome back
-                <a href="{% url 'posts:for_user' username=user.username %}">@{{ user.username }}</a></p>
+            {% if user.is_authenticated %}
+                <p class="lead"> Welcome back
+                    <a href="{% url 'posts:for_user' username=user.username %}">@{{ user.username }}</a></p>
+            {% endif %}
             <hr class="my-4">
             <p>Welcome to the Groups Page! <br>Select a Group with a shared interest!</p>
             {% if user.is_authenticated %}
